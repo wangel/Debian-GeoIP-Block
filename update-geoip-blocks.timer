@@ -9,3 +9,4 @@ Unit=update-geoip-blocks.service
 
 [Install]
 WantedBy=timers.target
+
