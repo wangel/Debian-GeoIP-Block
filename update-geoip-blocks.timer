@@ -1,0 +1,11 @@
+[Unit]
+Description=Run geoip ipset updater every 5 days
+
+[Timer]
+OnCalendar=*-*-* 03:23:00
+AccuracySec=1h
+Persistent=true
+Unit=update-geoip-blocks.service
+
+[Install]
+WantedBy=timers.target
