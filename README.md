@@ -14,9 +14,17 @@ The timer file also goes in /etc/systemd/system
 
 You can then install the script in /usr/local/sbin, and chmod +x it
 
-Run it, and you should be good to go.
+*****FIRST TIME RUN*****
+
+Run the script /usr/local/sbin/update-geoip-blocks.sh ... that will create the firewall rules, download the files, etc 
+After the script is run, update systemd with the new service and timer file:
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now update-geoip-blocks.timer
 
 Each rule logs with the prefix GEO4 or GEO6, so you can easily run:  journalctl -k -g GEO4 --no-pager -o short-precise 
 That will show you ip's that have been blocked and what port they are trying to get in on.
+
+
 
 Hopefully this helps someone.
